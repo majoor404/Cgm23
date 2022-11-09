@@ -11,7 +11,7 @@ namespace Cgm23
 {
     public partial class MainForm : Form
     {
-        public List<Tag> Tags = new List<Tag>();
+        public List<Charts> Tags = new List<Charts>();
         public MainForm()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Cgm23
                                 //DataText.AppendText(woord.ToString());
                                 //DataText.AppendText(Environment.NewLine);
 
-                                Tag nieuw = new Tag
+                                Charts nieuw = new Charts
                                 {
                                     Tag_ = woord.ToString(),
                                     As_ = AS,
@@ -100,7 +100,7 @@ namespace Cgm23
                 File.Delete(output);
             }
 
-            XmlSerializer serialiser = new XmlSerializer(typeof(List<Tag>));
+            XmlSerializer serialiser = new XmlSerializer(typeof(List<Charts>));
             TextWriter FileStream = new StreamWriter(output);
             serialiser.Serialize(FileStream, Tags);
             FileStream.Close();
@@ -111,10 +111,10 @@ namespace Cgm23
             Tags.Clear();
             if (File.Exists(naam))
             {
-                XmlSerializer serialiser = new XmlSerializer(typeof(List<Tag>));
+                XmlSerializer serialiser = new XmlSerializer(typeof(List<Charts>));
                 using (FileStream stream = File.OpenRead(naam))
                 {
-                    Tags = (List<Tag>)serialiser.Deserialize(stream);
+                    Tags = (List<Charts>)serialiser.Deserialize(stream);
                 }
             }
             else
@@ -157,6 +157,10 @@ namespace Cgm23
                 Regel("As24");
             if (checkBoxAs25.Checked)
                 Regel("As25");
+
+            DataText.SelectionStart = 0;
+            DataText.ScrollToCaret();
+            DataText.Focus();
         }
 
         private void Regel(String s)
@@ -164,7 +168,7 @@ namespace Cgm23
             Laad($"{s}.Xml");
             if (Tags.Count > 0)
             {
-                foreach (Tag tag in Tags)
+                foreach (Charts tag in Tags)
                 {
                     DataText.AppendText($"{tag.Tag_,-25} - {tag.As_,-8}");
                     DataText.AppendText(Environment.NewLine);
@@ -236,6 +240,11 @@ namespace Cgm23
             checkBoxAs23.Checked = false;
             checkBoxAs24.Checked = false;
             checkBoxAs25.Checked = false;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            _ = System.Diagnostics.Process.Start("https://github.com/majoor404/Cgm23");
         }
     }
 }

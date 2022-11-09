@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cgm23
 {
-    public class Tag
+    public class Charts
     {
         public string Tag_ { get; set; }    
         public string As_ { get; set; }

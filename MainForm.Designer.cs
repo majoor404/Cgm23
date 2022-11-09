@@ -52,6 +52,8 @@
             this.checkBoxAs25 = new System.Windows.Forms.CheckBox();
             this.SelectGeen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // DataText
@@ -61,7 +63,7 @@
             this.DataText.Multiline = true;
             this.DataText.Name = "DataText";
             this.DataText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.DataText.Size = new System.Drawing.Size(635, 551);
+            this.DataText.Size = new System.Drawing.Size(635, 527);
             this.DataText.TabIndex = 1;
             // 
             // NieuweIndexAsbutton
@@ -156,7 +158,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(243, 38);
             this.button3.TabIndex = 11;
-            this.button3.Text = "Laad Tags van geselecteerde As-en";
+            this.button3.Text = "Laad Charts van geselecteerde As-en";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.HerschrijfTextVeld);
             // 
@@ -301,11 +303,23 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "ronald.majoor@tatasteeleurope.com";
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(13, 550);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel1.TabIndex = 25;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://github.com/majoor404/Cgm23";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 575);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SelectGeen);
             this.Controls.Add(this.checkBoxAs25);
@@ -330,7 +344,7 @@
             this.Controls.Add(this.NieuweIndexAsbutton);
             this.Controls.Add(this.DataText);
             this.Name = "MainForm";
-            this.Text = "Tags CGM23";
+            this.Text = "Charts CGM23";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +375,8 @@
         private System.Windows.Forms.CheckBox checkBoxAs25;
         private System.Windows.Forms.Button SelectGeen;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
