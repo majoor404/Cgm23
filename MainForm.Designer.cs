@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.DataText = new System.Windows.Forms.TextBox();
             this.NieuweIndexAsbutton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -343,6 +344,7 @@
             this.Controls.Add(this.checkBoxAs01);
             this.Controls.Add(this.NieuweIndexAsbutton);
             this.Controls.Add(this.DataText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Charts CGM23";
