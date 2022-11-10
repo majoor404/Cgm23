@@ -127,6 +127,7 @@ namespace Cgm23
         {
             // clear text
             DataText.Clear();
+            DataText.Visible = false;
 
             // lees file
             if (checkBoxAs01.Checked)
@@ -158,6 +159,7 @@ namespace Cgm23
             if (checkBoxAs25.Checked)
                 Regel("As25");
 
+            DataText.Visible = true;
             DataText.SelectionStart = 0;
             DataText.ScrollToCaret();
             DataText.Focus();
@@ -219,12 +221,7 @@ namespace Cgm23
             checkBoxAs25.Checked = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void SelectGeen_Click(object sender, EventArgs e)
+         private void SelectGeen_Click(object sender, EventArgs e)
         {
             checkBoxAs01.Checked = false;
             checkBoxAs02.Checked = false;

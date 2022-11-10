@@ -38,7 +38,6 @@
             this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.buttonClearFilter = new System.Windows.Forms.Button();
             this.SelectAll = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.checkBoxAs03 = new System.Windows.Forms.CheckBox();
             this.checkBoxAs09 = new System.Windows.Forms.CheckBox();
             this.checkBoxAs11 = new System.Windows.Forms.CheckBox();
@@ -53,17 +52,16 @@
             this.SelectGeen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // DataText
             // 
             this.DataText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataText.Location = new System.Drawing.Point(12, 12);
+            this.DataText.Location = new System.Drawing.Point(12, 16);
             this.DataText.Multiline = true;
             this.DataText.Name = "DataText";
             this.DataText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.DataText.Size = new System.Drawing.Size(635, 527);
+            this.DataText.Size = new System.Drawing.Size(635, 523);
             this.DataText.TabIndex = 1;
             // 
             // NieuweIndexAsbutton
@@ -87,6 +85,7 @@
             this.checkBoxAs01.TabIndex = 3;
             this.checkBoxAs01.Text = "As01";
             this.checkBoxAs01.UseVisualStyleBackColor = true;
+            this.checkBoxAs01.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs02
             // 
@@ -98,6 +97,7 @@
             this.checkBoxAs02.TabIndex = 4;
             this.checkBoxAs02.Text = "As02";
             this.checkBoxAs02.UseVisualStyleBackColor = true;
+            this.checkBoxAs02.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs24
             // 
@@ -109,6 +109,7 @@
             this.checkBoxAs24.TabIndex = 5;
             this.checkBoxAs24.Text = "As24";
             this.checkBoxAs24.UseVisualStyleBackColor = true;
+            this.checkBoxAs24.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // button1
             // 
@@ -151,17 +152,6 @@
             this.SelectAll.UseVisualStyleBackColor = true;
             this.SelectAll.Click += new System.EventHandler(this.SelectAll_Click);
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(802, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(243, 38);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Laad Charts van geselecteerde As-en";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.HerschrijfTextVeld);
-            // 
             // checkBoxAs03
             // 
             this.checkBoxAs03.AutoSize = true;
@@ -172,6 +162,7 @@
             this.checkBoxAs03.TabIndex = 12;
             this.checkBoxAs03.Text = "As03";
             this.checkBoxAs03.UseVisualStyleBackColor = true;
+            this.checkBoxAs03.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs09
             // 
@@ -183,6 +174,7 @@
             this.checkBoxAs09.TabIndex = 13;
             this.checkBoxAs09.Text = "As09";
             this.checkBoxAs09.UseVisualStyleBackColor = true;
+            this.checkBoxAs09.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs11
             // 
@@ -194,6 +186,7 @@
             this.checkBoxAs11.TabIndex = 14;
             this.checkBoxAs11.Text = "As11";
             this.checkBoxAs11.UseVisualStyleBackColor = true;
+            this.checkBoxAs11.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs12
             // 
@@ -205,6 +198,7 @@
             this.checkBoxAs12.TabIndex = 15;
             this.checkBoxAs12.Text = "As12";
             this.checkBoxAs12.UseVisualStyleBackColor = true;
+            this.checkBoxAs12.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs13
             // 
@@ -216,6 +210,7 @@
             this.checkBoxAs13.TabIndex = 16;
             this.checkBoxAs13.Text = "As13";
             this.checkBoxAs13.UseVisualStyleBackColor = true;
+            this.checkBoxAs13.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs14
             // 
@@ -227,6 +222,7 @@
             this.checkBoxAs14.TabIndex = 17;
             this.checkBoxAs14.Text = "As14";
             this.checkBoxAs14.UseVisualStyleBackColor = true;
+            this.checkBoxAs14.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs15
             // 
@@ -238,6 +234,7 @@
             this.checkBoxAs15.TabIndex = 18;
             this.checkBoxAs15.Text = "As15";
             this.checkBoxAs15.UseVisualStyleBackColor = true;
+            this.checkBoxAs15.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs21
             // 
@@ -249,6 +246,7 @@
             this.checkBoxAs21.TabIndex = 19;
             this.checkBoxAs21.Text = "As21";
             this.checkBoxAs21.UseVisualStyleBackColor = true;
+            this.checkBoxAs21.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs22
             // 
@@ -260,6 +258,7 @@
             this.checkBoxAs22.TabIndex = 20;
             this.checkBoxAs22.Text = "As22";
             this.checkBoxAs22.UseVisualStyleBackColor = true;
+            this.checkBoxAs22.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs23
             // 
@@ -271,6 +270,7 @@
             this.checkBoxAs23.TabIndex = 21;
             this.checkBoxAs23.Text = "As23";
             this.checkBoxAs23.UseVisualStyleBackColor = true;
+            this.checkBoxAs23.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // checkBoxAs25
             // 
@@ -282,6 +282,7 @@
             this.checkBoxAs25.TabIndex = 22;
             this.checkBoxAs25.Text = "As25";
             this.checkBoxAs25.UseVisualStyleBackColor = true;
+            this.checkBoxAs25.CheckedChanged += new System.EventHandler(this.HerschrijfTextVeld);
             // 
             // SelectGeen
             // 
@@ -333,7 +334,6 @@
             this.Controls.Add(this.checkBoxAs11);
             this.Controls.Add(this.checkBoxAs09);
             this.Controls.Add(this.checkBoxAs03);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.SelectAll);
             this.Controls.Add(this.buttonClearFilter);
             this.Controls.Add(this.textBoxFilter);
@@ -344,6 +344,7 @@
             this.Controls.Add(this.NieuweIndexAsbutton);
             this.Controls.Add(this.DataText);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Charts CGM23";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,7 +362,6 @@
         private System.Windows.Forms.TextBox textBoxFilter;
         private System.Windows.Forms.Button buttonClearFilter;
         private System.Windows.Forms.Button SelectAll;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox checkBoxAs03;
         private System.Windows.Forms.CheckBox checkBoxAs09;
         private System.Windows.Forms.CheckBox checkBoxAs11;
@@ -376,7 +376,6 @@
         private System.Windows.Forms.Button SelectGeen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
