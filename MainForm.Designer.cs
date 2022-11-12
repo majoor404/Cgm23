@@ -55,6 +55,8 @@
             this.nieuweIndexMakenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.AantalCharts = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.FilterText = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -343,7 +345,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(688, 221);
+            this.label2.Location = new System.Drawing.Point(676, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 28;
@@ -358,12 +360,32 @@
             this.AantalCharts.TabIndex = 29;
             this.AantalCharts.Text = "0";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(676, 370);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "Filter op :";
+            // 
+            // FilterText
+            // 
+            this.FilterText.AutoSize = true;
+            this.FilterText.Location = new System.Drawing.Point(676, 396);
+            this.FilterText.Name = "FilterText";
+            this.FilterText.Size = new System.Drawing.Size(10, 13);
+            this.FilterText.TabIndex = 28;
+            this.FilterText.Text = ".";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 575);
             this.Controls.Add(this.AantalCharts);
+            this.Controls.Add(this.FilterText);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
@@ -426,6 +448,8 @@
         private System.Windows.Forms.ToolStripMenuItem nieuweIndexMakenToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label AantalCharts;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label FilterText;
     }
 }
 

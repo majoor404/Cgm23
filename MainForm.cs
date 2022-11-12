@@ -24,6 +24,7 @@ namespace Cgm23
             DialogResult = folderBrowserDialog.ShowDialog(); // Show the dialog.
             if (DialogResult == DialogResult.OK)
             {
+                DataText.Visible = false;
                 DataText.Clear();
                 LeesAS("As01");
                 LeesAS("As02");
@@ -39,7 +40,8 @@ namespace Cgm23
                 LeesAS("As23");
                 LeesAS("As24");
                 LeesAS("As25");
-
+                AantalCharts.Text = DataText.Lines.Length.ToString();
+                DataText.Visible = true;
                 DataText.SelectionStart = 0;
                 DataText.ScrollToCaret();
                 _ = DataText.Focus();
@@ -51,21 +53,21 @@ namespace Cgm23
         {
             try
             {
-                var data = File.ReadAllLines($"{AS}.txt"); // data is een array
-                var data1 = new List<string>(data);         // data1 is een list van strings
-
-                DataText.Visible = false;
-                for (int i = 0; i < data1.Count; i++)
-                {
-                    DataText.AppendText(data1[i]);
-                    DataText.AppendText(Environment.NewLine);
-                }
-                DataText.Visible = true;
-
-                AantalCharts.Text = DataText.Lines.Length.ToString();
-                
+                DataText.AppendText(File.ReadAllText($"{AS}.txt"));
             }
             catch { }
+
+            //try
+            //{
+            //    var data = File.ReadAllLines($"{AS}.txt");  // data is een array
+            //    var data1 = new List<string>(data);         // data1 is een list van strings
+            //    for (int i = 0; i < data1.Count; i++)
+            //    {
+            //        DataText.AppendText(data1[i]);
+            //        DataText.AppendText(Environment.NewLine);
+            //    }
+            //}
+            //catch { }
         }
         
 
@@ -102,6 +104,9 @@ namespace Cgm23
             if (checkBoxAs25.Checked)
                 Laad("As25");
 
+            FilterText.Text = "";
+            textBoxFilter.Text = "";
+
             AantalCharts.Text = DataText.Lines.Length.ToString();
             DataText.SelectionStart = 0;
             DataText.ScrollToCaret();
@@ -131,6 +136,15 @@ namespace Cgm23
         {
             Filter(textBoxFilter.Text);
             AantalCharts.Text = DataText.Lines.Length.ToString();
+            if (FilterText.Text.Length > 0)
+            {
+                FilterText.Text = FilterText.Text + " + " + textBoxFilter.Text;
+            }
+            else
+            {
+                FilterText.Text = textBoxFilter.Text;
+            }
+            textBoxFilter.Text = "";
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
