@@ -40,29 +40,30 @@ namespace Cgm23
                 LeesAS("As24");
                 LeesAS("As25");
 
-                // save tags
-                Save_Text();
-
-                Laad();
+                DataText.SelectionStart = 0;
+                DataText.ScrollToCaret();
+                _ = DataText.Focus();
 
             }
         }
 
-        private void Save_Text()
-        {
-            File.WriteAllText("Charts.txt", DataText.Text);
-        }
-
-
-        private void Laad()
+        private void Laad(string AS)
         {
             try
             {
-                DataText.Text = File.ReadAllText("Charts.txt");
+                var data = File.ReadAllLines($"{AS}.txt"); // data is een array
+                var data1 = new List<string>(data);         // data1 is een list van strings
+
+                DataText.Visible = false;
+                for (int i = 0; i < data1.Count; i++)
+                {
+                    DataText.AppendText(data1[i]);
+                    DataText.AppendText(Environment.NewLine);
+                }
+                DataText.Visible = true;
+
                 AantalCharts.Text = DataText.Lines.Length.ToString();
-                DataText.SelectionStart = 0;
-                DataText.ScrollToCaret();
-                _ = DataText.Focus();
+                
             }
             catch { }
         }
@@ -71,62 +72,41 @@ namespace Cgm23
         private void HerschrijfTextVeld(object sender, EventArgs e)
         {
             DataText.Clear();
-            Laad();
-
-            var Lijst = new List<string>();
-
-            if (checkBoxAs01.Checked)
-                Lijst.Add("As01");
-            if (checkBoxAs02.Checked)
-                Lijst.Add("As02");
-            if (checkBoxAs03.Checked)
-                Lijst.Add("As03");
-            if (checkBoxAs09.Checked)
-                Lijst.Add("As09");
-            if (checkBoxAs11.Checked)
-                Lijst.Add("As11");
-            if (checkBoxAs12.Checked)
-                Lijst.Add("As12");
-            if (checkBoxAs13.Checked)
-                Lijst.Add("As13");
-            if (checkBoxAs14.Checked)
-                Lijst.Add("As14");
-            if (checkBoxAs15.Checked)
-                Lijst.Add("As15");
-            if (checkBoxAs21.Checked)
-                Lijst.Add("As21");
-            if (checkBoxAs22.Checked)
-                Lijst.Add("As22");
-            if (checkBoxAs23.Checked)
-                Lijst.Add("As23");
-            if (checkBoxAs24.Checked)
-                Lijst.Add("As24");
-            if (checkBoxAs25.Checked)
-                Lijst.Add("As25");
-
-            List<string> nieuwe_lijst = new List<string>();
-            //bool delete_regel = true;
-
-            for (int i = 0; i < DataText.Lines.Length; i++)
-            {
-                for (int q = 0; q < Lijst.Count; q++)
-                {
-                    if (DataText.Lines[i].Contains(Lijst[q]))
-                    {
-                        nieuwe_lijst.Add(DataText.Lines[i]);
-                        break;
-                    }
-                }
-            }
             
-            DataText.Lines = nieuwe_lijst.ToArray();
+            if (checkBoxAs01.Checked)
+                Laad("As01");
+            if (checkBoxAs02.Checked)
+                Laad("As02");
+            if (checkBoxAs03.Checked)
+                Laad("As03");
+            if (checkBoxAs09.Checked)
+                Laad("As09");
+            if (checkBoxAs11.Checked)
+                Laad("As11");
+            if (checkBoxAs12.Checked)
+                Laad("As12");
+            if (checkBoxAs13.Checked)
+                Laad("As13");
+            if (checkBoxAs14.Checked)
+                Laad("As14");
+            if (checkBoxAs15.Checked)
+                Laad("As15");
+            if (checkBoxAs21.Checked)
+                Laad("As21");
+            if (checkBoxAs22.Checked)
+                Laad("As22");
+            if (checkBoxAs23.Checked)
+                Laad("As23");
+            if (checkBoxAs24.Checked)
+                Laad("As24");
+            if (checkBoxAs25.Checked)
+                Laad("As25");
 
             AantalCharts.Text = DataText.Lines.Length.ToString();
             DataText.SelectionStart = 0;
             DataText.ScrollToCaret();
             _ = DataText.Focus();
 
-            
         }
 
         
@@ -174,7 +154,7 @@ namespace Cgm23
         private void Lees_AS_uit_Text(string AS, string path)
         {
             StringBuilder woord = new StringBuilder();
-
+            List<string> gevonden_charts = new List<string>();
             try
             {
                 using (StreamReader sr = new StreamReader(path))
@@ -191,8 +171,9 @@ namespace Cgm23
                         {
                             if (woord.Length > 5)
                             {
-                                DataText.AppendText($"{woord,-25} - {AS,-8}");
-                                DataText.AppendText(Environment.NewLine);
+                                gevonden_charts.Add($"{woord,-25} - {AS,-8}");
+                                //DataText.AppendText($"{woord,-25} - {AS,-8}");
+                                //DataText.AppendText(Environment.NewLine);
                             }
 
                             _ = woord.Clear();
@@ -204,11 +185,12 @@ namespace Cgm23
             {
                 Console.WriteLine("The process failed: {0}", e.ToString());
             }
+            File.WriteAllLines($"{AS}.txt", gevonden_charts);
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            Laad();
+            HerschrijfTextVeld(this, null);
         }
     }
 }
