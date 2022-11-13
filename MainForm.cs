@@ -74,6 +74,7 @@ namespace Cgm23
         private void HerschrijfTextVeld(object sender, EventArgs e)
         {
             DataText.Clear();
+            DataText.Visible = false;
             
             if (checkBoxAs01.Checked)
                 Laad("As01");
@@ -103,7 +104,8 @@ namespace Cgm23
                 Laad("As24");
             if (checkBoxAs25.Checked)
                 Laad("As25");
-
+            
+            DataText.Visible = true;
             FilterText.Text = "";
             textBoxFilter.Text = "";
 
